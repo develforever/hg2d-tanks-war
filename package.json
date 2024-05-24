@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "main": "bin/www.ts",
+  "type": "module",
   "scripts": {
-    "build": "npx tsc",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/public/**/* src/views/**/* dist/",
+    "build": "npm run clean; npx tsc; npm run copy-files",
     "start": "node ./dist/bin/www.js",
-    "debug": "nodemon ./bin/www.ts"
+    "debug": "nodemon ./src/bin/www.ts"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,17 +18,20 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.7",
     "@types/debug": "^4.1.12",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.12.12",
     "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "copyfiles": "^2.4.1",
+    "rimraf": "^5.0.7"
   }
 }

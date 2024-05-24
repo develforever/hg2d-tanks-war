@@ -4,8 +4,9 @@
  * Module dependencies.
  */
 
-import dotenv from "dotenv";
-dotenv.config();
+import 'dotenv/config'
+
+//dotenv.config();
 
 import app from '../app';
 import debugModule from 'debug'
