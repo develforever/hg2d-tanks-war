@@ -1,22 +1,28 @@
 #!/usr/bin/env node
+"use strict";
 /**
  * Module dependencies.
  */
-import 'dotenv/config';
-//dotenv.config();
-import app from '../app';
-import debugModule from 'debug';
-import http from 'http';
-const debug = debugModule('hg2d-tanks-war:server');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+require("dotenv/config");
+const app_1 = __importDefault(require("../app"));
+const debug_1 = __importDefault(require("debug"));
+const http_1 = __importDefault(require("http"));
+const socket_io_1 = require("socket.io");
+const debug = (0, debug_1.default)('hg2d-tanks-war:server');
 /**
  * Get port from environment and store in Express.
  */
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+app_1.default.set('port', port);
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app);
+var server = http_1.default.createServer(app_1.default);
+const io = new socket_io_1.Server(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -74,3 +80,4 @@ function onListening() {
         debug('Listening on ' + bind);
     }
 }
+//# sourceMappingURL=www.js.map

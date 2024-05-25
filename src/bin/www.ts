@@ -6,11 +6,10 @@
 
 import 'dotenv/config'
 
-//dotenv.config();
-
 import app from '../app';
 import debugModule from 'debug'
 import http from 'http';
+import { Server, Socket } from "socket.io";
 
 const debug = debugModule('hg2d-tanks-war:server');
 
@@ -26,6 +25,8 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+const io = new Server(server);
 
 /**
  * Listen on provided port, on all network interfaces.
