@@ -28,6 +28,10 @@ var server = http.createServer(app);
 
 const io = new Server(server);
 
+io.on(`connection`, (socket)=>{
+  debug(`user ${socket.id} connected`)
+})
+
 /**
  * Listen on provided port, on all network interfaces.
  */

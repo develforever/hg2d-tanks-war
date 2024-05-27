@@ -1,6 +1,6 @@
 {
   "verbose": true,
   "watch": ["src"],
-  "ext": "ts",
-  "exec": "concurrently \"npx tsc --watch\" \"npx tsx --inspect --trace-warnings ./src/bin/www.ts\" \"npx copyfiles -u 1 src/public/javascripts/**/*.js src/stylesheets/**/*.css src/views/**/* dist/\""
+  "ext": "ts,tsx",
+  "exec": "concurrently \"npx tsc --watch\" \"npx tsx --inspect --trace-warnings ./src/bin/www.ts\" \"npx webpack --watch\" \"npx copyfiles -u 1 src/views/**/* dist/\""
 }
