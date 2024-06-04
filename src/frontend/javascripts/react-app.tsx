@@ -1,34 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { io } from "socket.io-client";
-import AppContext, {AppState} from './AppContext';
+import AppContext, { AppState } from './AppContext';
 import debug from './logger';
 import socketClient from './socket-client';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
-function MyButton({ title }: { title: string }) {
-
-  const appState = useContext(AppContext);
-  debug(appState)
-  return (
-    <button>{title}</button>
-  );
-}
 
 function ReactApp() {
 
   const socket = socketClient();
-  
-  const [appstate, setAppState] = useState({
+
+  const [appstate] = useState({
     socket: socket
   } as AppState)
   const appContext: typeof AppContext = AppContext
 
   return (
     <AppContext.Provider value={appstate}>
-      <div>
-        <h1>Welcome to my app</h1>
-        <MyButton title="I'm a button" />
-      </div>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
     </AppContext.Provider>
   );
 }
