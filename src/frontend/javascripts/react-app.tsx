@@ -18,11 +18,13 @@ function ReactApp() {
   const appContext: typeof AppContext = AppContext
 
   return (
-    <AppContext.Provider value={appstate}>
-      <React.StrictMode>
+    <React.StrictMode>
+      <AppContext.Provider value={appstate}>
+
         <RouterProvider router={router} />
-      </React.StrictMode>
-    </AppContext.Provider>
+
+      </AppContext.Provider>
+    </React.StrictMode>
   );
 }
 

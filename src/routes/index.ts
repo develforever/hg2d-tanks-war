@@ -1,5 +1,7 @@
 import express from 'express'
-var router = express.Router();
+import debug from "@/frontend/javascripts/logger"
+
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

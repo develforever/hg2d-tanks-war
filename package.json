@@ -10,11 +10,15 @@
     "start": "node ./dist/bin/www.js",
     "debug": "npm run clean; nodemon -L"
   },
+  "imports": {
+    "@*": "./src/*"
+  },
   "dependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/socket.io": "^3.0.2",
+    "@types/three": "^0.165.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.4.5",
@@ -29,6 +33,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "socket.io-client": "^4.7.5",
+    "three": "^0.165.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.11.0",
     "typescript": "^5.4.5"
