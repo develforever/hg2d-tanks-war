@@ -20,9 +20,7 @@ function ReactApp() {
   return (
     <React.StrictMode>
       <AppContext.Provider value={appstate}>
-
         <RouterProvider router={router} />
-
       </AppContext.Provider>
     </React.StrictMode>
   );
